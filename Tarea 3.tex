@@ -1,0 +1,180 @@
+\documentclass[12pt]{exam}
+\usepackage[utf8]{inputenc}		% Caracteres latinos
+\usepackage[spanish]{babel}		% Idioma español
+\usepackage{geometry}			% Organizar el documento
+\usepackage{graphicx}			% Incluir gráficos
+\usepackage{makecell}			% Para personalizar las celdas de una tabla
+\usepackage[nohdr]{mathexam}	% Añadimos el paquete mathexam (sin header)
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{tikz,pgfplots}
+\usepgfplotslibrary{polar}
+\usepackage[shortlabels]{enumitem}
+ \renewcommand{\baselinestretch}{1.5}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{esvect}
+\usepackage[fleqn]{mathtools}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[document]{ragged2e}
+ \usepackage{textpos}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{mathdesign}
+
+%\usepackage[]{mathptmx}        % A free version o Times Roman with mathematical symbols
+%\usepackage{pzc}               % fuente cursiva (conjuntos) Zapf Chancery
+%\usepackage{showframe}
+%\usepackage{lipsum}
+
+% DOCUMENTACIÓN DE LA CLASE EXAM
+% http://ftp.inf.utfsm.cl/pub/tex-archive/macros/latex/contrib/exam/examdoc.pdf
+% DOCUMENTACIÓN DE LA CLASE MATHEXAM
+% http://ctan.dcc.uchile.cl/macros/latex/contrib/mathexam/doc/mathexam.pdf
+
+% Definimos la geometría de la primera página
+\geometry{
+	a4paper,                    % Tamaño del documento
+	hmargin = {1.7cm, 1.6cm}, 	% Margen horizontal izquierdo, derecho
+	vmargin = {1cm, 1cm},	    % Margen vertical superior, inferior
+	headsep = 4mm,				% Separación entre el encabezado y el texto
+	head = .2cm,				% Tamaño del encabezado
+	% marginparsep = 5mm, 		% Seperación entre las notas y el texto
+	% marginpar = 1.5cm,		% Tamaño de las notas
+	includeall,                 % incluye el encabezado, footer y notas dentro del tamaño del documento
+	nomarginpar,	            % Elimina las notas
+	foot = 1cm,                 % Tamaño del footer
+	twoside,                	% Habilita el modo de impresión a doble cara
+}
+
+\selectlanguage{spanish}        % Selecciona el idioma
+\spanishdecimal{.}
+
+%\pagestyle{headandfoot}         % Nuestro examen tendrá encabezado y pié
+
+% DEFINIMOS EL ENCABEZADO
+%\header{
+%\begin{tabular}{l c c c l}
+%            \makecell{\includegraphics[height=2.5cm]{logo.png}} &
+%            \makecell{\textbf{IPEA 215} \\Raúl Scalabrini Ortiz} &
+%            \makecell{Examen} &
+%            \makecell{Curso\\1er Año} &
+%             \makecell[l]{Apellido y %Nombre:\enspace\makebox[2in]{\hrulefill}\\Fecha: \today}
+%        \end{tabular}}{}{}
+
+% DEFINIMOS EL PIE
+%\rfoot{Página \thepage\ de \numpages}
+\newcommand{\iuni}{\pmb{\hat{\imath}}}
+\newcommand{\juni}{\pmb{\hat{\jmath}}}
+\newcommand{\kuni}{\pmb{\hat{k}}}
+\renewcommand{\sin}{\,\text{sen}\,}
+
+% DOCUMENTO
+\begin{document}
+
+\centering
+
+
+\Large 
+\textbf{\huge Tarea 3\\ \large Otros tipos de ecuaciones. Métodos numéricos}
+
+\small
+Fecha de entrega viernes 5 de Noviembre
+\vskip10pt
+
+\normalsize
+
+\pointpoints{punto}{puntos}
+\pointformat{\bfseries\boldmath(\thepoints)}
+\vskip10pt
+
+    
+    \begin{questions}
+     % 1 %
+     \question
+     Resuelve las siguientes ecuaciones.
+     \begin{enumerate} [a)]
+			\item $(3x^2+y)dx+(x^2y-x)dy=0$
+		  	\item $(2xy)dx+(y^2-3x^2)dy=0$
+%           	\item $(y^2+2xy)dx-x^2dy=0$
+     \end{enumerate}
+
+     
+     % 2 %
+     \question
+     Muestra que si $(\partial N/\partial x-\partial M/\partial y)/(xM-yN)$ solo depende del producto $xy$, es decir, $$\frac{\partial N/\partial x-\partial M/\partial y}{xM-yN}=H(xy),$$ entonces la ecuación $M(x,y)dx+N(x,y)dy=0$ tiene un factor integrante de la forma $\mu(xy)$. Proporciona la fórmula general para $\mu(xy)$.
+     
+     % 3 %
+     \question
+     Identifica la ecuación como homogénea, de Bernoulli, con coeficientes lineales o de la forma $y'=G(ax+by)$. Resuelve las ecuaciones.
+     \begin{enumerate}[a)]
+     	\item $(y-4x-1)^2dx-dy=0$
+        \item $2tx\,dx+(t^2-x^2)dt=0$
+        \item $(y^3-\theta y^2)d\theta+2\theta^2y\,dy=0$
+        \item $\frac{dx}{dt}=\frac{x^2+t\sqrt{t^2+x^2}}{tx}$
+        \item $\frac{dy}{dx}= \sin(x-y)$
+        \item $\frac{dx}{dt}+tx^3+\frac{x}{t}=0$
+        \item $\frac{dy}{dx}+y^3x+y=0$
+        \item $(2x-y)dx+(4x+y-3)dy=0$
+       \end{enumerate}
+        
+     % 4 %
+     \question
+     \begin{enumerate}[a)]
+     		\item Muestra que la ecuación $dy/dx=f(x,y)$ es homogénea si y solo si $f(tx,ty)=f(x,y)$. Hint: usa $t=1/x$
+            \item Una función $H(x,y)$ es homogénea de orden $\mathbf{n}$ si $H(tx,ty)=t^nf(x,y)$. Muestra que la ecuación $M(x,y)dx+N(x,y)dy=0$ es homogénea si $M(x,y)$ y $N(x,y)$ son homogéneas del mismo orden.
+     \end{enumerate}
+     
+
+     % 5 %
+     \question
+     Una ecuacion de la forma $$\frac{dy}{dx}=P(x)y^2+Q(x)y+R(x)$$ se denomina ecuación de Riccat.
+     \begin{enumerate}[a)]
+     		\item Supóngase una solución $u(x)$. Muestra que la sustitución $y=u+1/v$ reduce la ecuación de Riccati a una ecuación lineal en $v$.
+            \item Dado que $u(x)=x$ es una solución de $$\frac{dy}{dx}=x^3(y-x)^2+\frac{y}{x},$$ usa el resultado del inciso \textit{a)} para hallar todas las demás soluciones de esta ecuación.
+     \end{enumerate}
+
+     % 6 %
+     \question
+     Calcula la aproximación mediante el \textit{a)} el método de Euler y \textit{b)} el método de Euler mejorado de la solución $\phi(x)=e^{5x}$ de $y'=5y$ con $y(0)=1$. Completa las tablas.
+    
+    \small
+     \begin{tabular}{cm{2.5cm}cc}
+     \hline
+     h&\centering{Aproximación de Euler}&Error&Error/h\\
+     \hline
+     1\\
+     $10^{-1}$\\
+     $10^{-2}$\\
+     $10^{-3}$\\
+     $10^{-4}$\\
+     \hline
+     \end{tabular}
+     \begin{tabular}{cm{3cm}cc}
+     \hline
+     h&\centering{Aproximación de Euler mejorado}&Error&Error/$h^2$\\
+     \hline
+     1\\
+     $10^{-1}$\\
+     $10^{-2}$\\
+     $10^{-3}$\\
+     $10^{-4}$\\
+     \hline
+     \end{tabular}
+     
+  
+     
+
+     % 7 %
+     \question
+     Usa el método de Runge-Kutta de cuarto orden con $h=0.25$ para aproximar la solución del problema con valor inicial $$y'=2y-6,\quad y(0)=1$$ en $x=1$. Comprueba esta aproximación con la solución real $y=3-2e^{2x}$ evaluada en $x=1$.
+
+        \end{questions}
+        \vskip30pt
+
+
+\end{document}
