@@ -1,0 +1,179 @@
+\documentclass[12pt]{exam}
+\usepackage[utf8]{inputenc}		% Caracteres latinos
+\usepackage[spanish]{babel}		% Idioma español
+\usepackage{geometry}			% Organizar el documento
+\usepackage{graphicx}			% Incluir gráficos
+\usepackage{makecell}			% Para personalizar las celdas de una tabla
+\usepackage[nohdr]{mathexam}	% Añadimos el paquete mathexam (sin header)
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{tikz,pgfplots}
+\usepgfplotslibrary{polar}
+\usepackage[shortlabels]{enumitem}
+ \renewcommand{\baselinestretch}{1.5}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{esvect}
+\usepackage[fleqn]{mathtools}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[document]{ragged2e}
+ \usepackage{textpos}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{mathdesign}
+
+%\usepackage[]{mathptmx}        % A free version o Times Roman with mathematical symbols
+%\usepackage{pzc}               % fuente cursiva (conjuntos) Zapf Chancery
+%\usepackage{showframe}
+%\usepackage{lipsum}
+
+% DOCUMENTACIÓN DE LA CLASE EXAM
+% http://ftp.inf.utfsm.cl/pub/tex-archive/macros/latex/contrib/exam/examdoc.pdf
+% DOCUMENTACIÓN DE LA CLASE MATHEXAM
+% http://ctan.dcc.uchile.cl/macros/latex/contrib/mathexam/doc/mathexam.pdf
+
+% Definimos la geometría de la primera página
+\geometry{
+	a4paper,                    % Tamaño del documento
+	hmargin = {1.7cm, 1.6cm}, 	% Margen horizontal izquierdo, derecho
+	vmargin = {1cm, 1cm},	    % Margen vertical superior, inferior
+	headsep = 4mm,				% Separación entre el encabezado y el texto
+	head = .2cm,				% Tamaño del encabezado
+	% marginparsep = 5mm, 		% Seperación entre las notas y el texto
+	% marginpar = 1.5cm,		% Tamaño de las notas
+	includeall,                 % incluye el encabezado, footer y notas dentro del tamaño del documento
+	nomarginpar,	            % Elimina las notas
+	foot = 1cm,                 % Tamaño del footer
+	twoside,                	% Habilita el modo de impresión a doble cara
+}
+
+\selectlanguage{spanish}        % Selecciona el idioma
+\spanishdecimal{.}
+
+%\pagestyle{headandfoot}         % Nuestro examen tendrá encabezado y pié
+
+% DEFINIMOS EL ENCABEZADO
+%\header{
+%\begin{tabular}{l c c c l}
+%            \makecell{\includegraphics[height=2.5cm]{logo.png}} &
+%            \makecell{\textbf{IPEA 215} \\Raúl Scalabrini Ortiz} &
+%            \makecell{Examen} &
+%            \makecell{Curso\\1er Año} &
+%             \makecell[l]{Apellido y %Nombre:\enspace\makebox[2in]{\hrulefill}\\Fecha: \today}
+%        \end{tabular}}{}{}
+
+% DEFINIMOS EL PIE
+%\rfoot{Página \thepage\ de \numpages}
+\newcommand{\iuni}{\pmb{\hat{\imath}}}
+\newcommand{\juni}{\pmb{\hat{\jmath}}}
+\newcommand{\kuni}{\pmb{\hat{k}}}
+\renewcommand{\sin}{\,\text{sen}\,}
+
+% DOCUMENTO
+\begin{document}
+
+\centering
+
+
+\Large 
+\textbf{\huge Tarea 4\\ \large Ecuaciones lineales homogéneas}
+
+\small
+Fecha de entrega jueves 18 de Noviembre
+\vskip10pt
+
+\normalsize
+
+\pointpoints{punto}{puntos}
+\pointformat{\bfseries\boldmath(\thepoints)}
+\vskip10pt
+
+    
+    \begin{questions}
+     % 1 % 
+     \question% 
+     Verfica que para $b=0$ y $F_{externa}=0$, la ecuación $my''+by'+ky=F_{ext}(t)$ tiene una solución de la forma $y(t)=\sen \omega t$, donde $\omega=\sqrt{k/m}$
+     
+
+     % 2 % N
+     \question% 
+     Se aplica una fuerza externa $F(t)=2\cos2t$ a un sistema masa-resorte con $m=1$, $b=0$ y $k=4$, que está inicialmente en reposo; es decir, $y(0)=0$, $y'(0)=0$. Verifica que $y(t)=\frac{1}{2}\sen2t$ da el movimiento de este resorte. ¿Qué ocurrirá a largo plazo (al aumentar $t$) con el resorte?
+
+     
+     % 3 % 
+     \question% 
+      Si $y(x)=c_1+c_2x^2$ es una familia de soluciones de $xy''-y'=0$ en el intervalo $(-\infty,\infty)$, demuestra que las constantes $c_1$ y $c_2$ no se pueden determinar de tal manera que un miembro de la familia satisfaga las condiciones $y(0)=0$, $y'(0)=1$. Explica  por qué esto no contradice el Teorema de existencia y unicidad de soluciones para ecuaciones lineales de orden $n$.
+     
+
+
+     % 4 % 
+     \question% 
+     Determina si las funciones dadas son linealmente independientes o dependientes en el intervalo.
+     \begin{enumerate}[a)]
+         \item $y_1(x)=xe^{2x}$, $y_2(x)=e^{2x}$; en el intervalo $(0,1)$
+         \item $y_1(x)=x^2\cos(\ln|x|)$, $y_2(x)=x^2\sen(\ln|x|)$; en el intervalo $(0,1)$
+         \item $y_1(x)=0$, $y_2(x)=e^x$; en el intervalo $(0,1)$
+         \item $y_1(x)=1$, $y_2(x)=x$, $y_3(x)=x^2$; en el intervalo $(-\infty,\infty)$
+         \item $y_1(x)=-3$, $y_2(x)=5\sen^2x$, $y_3(x)=\cos^2x$; en el intervalo $(-\infty,\infty)$
+     \end{enumerate}
+
+
+
+
+
+     % 5 % 
+     \question% 
+     Si se especifican los valores de una solución a una ecuación diferencial en dos puntos distintos, estas condiciones se llaman condiciones en la frontera. (En contraste, las condiciones iniciales especifican los valores de una función y su derivada en el mismo punto). La finalidad de este ejercicio es mostrar que los problemas con valores en la frontera no tienen un teorema de existencia y unicidad similar a los problemas con valores iniciales. Dado que toda solución de $y''+y'=0$ tiene la forma $y(t)=c_1\cos t+c_2\sen t$, donde $c_1$ y $c_2$ son constantes arbitrarias, muestra que
+     \begin{enumerate}[a)]
+         \item Existe una única solución de $y''+y'=0$ que satisface las condiciones en la frontera $y(0)=2$ y $y(\pi/2)=0$.
+         \item No existe una solución de $y''+y'=0$ que satisfaga $y(0)=2$ y $y(\pi)=0$.
+         \item Existe una infinidad de soluciones de $y''+y'=0$ que satisfacen $y(0)=2$ y $y(\pi)=-2$.
+     \end{enumerate}
+
+
+     % 6 % 
+     \question%
+     Encuentra la solución general de la ecuación dada para $x>0$
+     \begin{enumerate}
+         \item $x^2y''(x)+7xy'(x)-7y(x)=0$
+         \item $\frac{d^2w}{dx^2}+\frac{6}{x}\frac{dw}{dx}+\frac{4}{x^2}w=0$
+     \end{enumerate}
+     
+
+     
+     
+     % 7 % 
+     \question%
+     Resuelve las siguientes ecuaciones diferenciales.
+     \begin{enumerate}[a)]
+         \item $y'''+3y''-4y'-12y=0$
+         \item $2u''+7u'-4u=0$
+         \item $z'''+2z''-4z'-8z=0$
+         \item $y''+y´=0$ con $y(0)=2$ y $y'(0)=1$
+         \item $y''-2y'+2y=0$ con $y(\pi)=e^{\pi}$ y $y'(\pi)=0$
+         \item $y'''-2y''-y'+2y=0$ con $y(0)=2$, $y'(0)=3$ y $y''(0)=5$
+         \item $y^{iv}+13y''+36y=0$
+         \item $4y''-4y'+y=0$
+         \item $y''+9y=0$
+     \end{enumerate}
+
+     
+
+     % 8 % 
+     \question%
+     Un resorte en vibración sin amortiguamiento puede modelarse mediante el problema con valores iniciales $my''(t)+by'(t)+ky=0$ haciendo $b=0$.
+     \begin{enumerate}[a)]
+         \item Si $m=10\, kg$, $k=250\,kg/s^2$, $y(0)=0.3\,m$ y $y'(0)=-0.1\,m/s$, determina la función de movimiento para este resorte en vibración sin amortiguamiento.
+         \item Cuando la ecuación de movimiento tiene la forma $y(t)=c_1e^{\alpha t}\cos\beta t+c_2e^{\alpha t}\beta t$, se dice que el movimiento es oscilatorio con frecuencia $\beta/2\pi$. Determina la frecuencia de oscilación para el sistema de resorte del inciso anterior.
+         \item Agrega un término de amortiguamiento al mismo sistema haciendo $b=60\,kg/s$ y determina la función de movimiento y su frecuencia de oscilación.
+         \item ¿Qué efecto tuvo el amortiguamiento sobre la frecuencia de oscilación y qué otros efectos tuvo sobre la solución?
+     \end{enumerate}
+   
+        \end{questions}
+
+
+\end{document}
