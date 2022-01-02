@@ -1,0 +1,216 @@
+\documentclass[12pt]{exam}
+\usepackage[utf8]{inputenc}		% Caracteres latinos
+\usepackage[spanish]{babel}		% Idioma español
+\usepackage{geometry}			% Organizar el documento
+\usepackage{graphicx}			% Incluir gráficos
+\usepackage{makecell}			% Para personalizar las celdas de una tabla
+\usepackage[nohdr]{mathexam}	% Añadimos el paquete mathexam (sin header)
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{tikz,pgfplots}
+\usepgfplotslibrary{polar}
+\usepackage[shortlabels]{enumitem}
+ \renewcommand{\baselinestretch}{1.5}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{esvect}
+\usepackage[fleqn]{mathtools}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[document]{ragged2e}
+ \usepackage{textpos}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{mathdesign}
+
+\geometry{
+	a4paper,                    % Tamaño del documento
+	hmargin = {1.7cm, 1.6cm}, 	% Margen horizontal izquierdo, derecho
+	vmargin = {1cm, 1cm},	    % Margen vertical superior, inferior
+	headsep = 4mm,				% Separación entre el encabezado y el texto
+	head = .2cm,				% Tamaño del encabezado
+	% marginparsep = 5mm, 		% Seperación entre las notas y el texto
+	% marginpar = 1.5cm,		% Tamaño de las notas
+	includeall,                 % incluye el encabezado, footer y notas dentro del tamaño del documento
+	nomarginpar,	            % Elimina las notas
+	foot = 1cm,                 % Tamaño del footer
+	twoside,                	% Habilita el modo de impresión a doble cara
+}
+
+\selectlanguage{spanish}        % Selecciona el idioma
+\spanishdecimal{.}
+
+%\pagestyle{headandfoot}         % Nuestro examen tendrá encabezado y pié
+
+% DEFINIMOS EL ENCABEZADO
+%\header{
+%\begin{tabular}{l c c c l}
+%            \makecell{\includegraphics[height=2.5cm]{logo.png}} &
+%            \makecell{\textbf{IPEA 215} \\Raúl Scalabrini Ortiz} &
+%            \makecell{Examen} &
+%            \makecell{Curso\\1er Año} &
+%             \makecell[l]{Apellido y %Nombre:\enspace\makebox[2in]{\hrulefill}\\Fecha: \today}
+%        \end{tabular}}{}{}
+
+% DEFINIMOS EL PIE
+%\rfoot{Página \thepage\ de \numpages}
+\newcommand{\iuni}{\pmb{\hat{\imath}}}
+\newcommand{\juni}{\pmb{\hat{\jmath}}}
+\newcommand{\kuni}{\pmb{\hat{k}}}
+\renewcommand{\sin}{\,\text{sen}\,}
+\newcommand*\colvec[3][]{
+    \begin{pmatrix}\ifx\relax#1\relax\else#1\\\fi#2\\#3\end{pmatrix}
+}
+%\colvec{a}{b} para dos 
+% \colvec[a]{b}{c} para tres
+% DOCUMENTO
+\begin{document}
+
+\centering
+
+
+\Large 
+\textbf{\huge Tarea 7 \\ \large Sistemas Lineales}
+
+\small
+Fecha de entrega Viernes 14 de Enero
+\vskip10pt
+\normalsize
+
+\pointpoints{punto}{puntos}
+\pointformat{\bfseries\boldmath(\thepoints)}
+\vskip10pt
+
+    
+    \begin{questions}
+     % 1 % 
+     \question
+     Considera el sistema lineal correspondiente a la ecuación de segundo orden $$\frac{d^2y}{dt^2}+p\frac{dy}{dt}+qy=0$$
+     \begin{enumerate}[a)]
+         \item Si $q=0$ y $p\neq0$, encuentra todos los puntos de equilibrio.
+         \item Si $q=p=0$, encuentra todos los puntos de equilibrio.
+     \end{enumerate}
+
+
+     % 2 
+     \question% 
+     Convierte la ecuación diferencial de tercer orden $$\frac{d^3y}{dt^3}+p\frac{d^2y}{dt^2}+q\frac{dy}{dt}+ry=0$$ donde $p$, $q$ y $r$ son constantes, a un sistema lineal tridimensional escrito en forma matricial.
+
+     
+     % 3 
+     \question% 
+     Para los siguientes sistemas lineales de la forma $\dfrac{d\mathbf{Y}}{dt}=\mathbf{AY}$ se especifica la matriz de coeficientes,  dos funciones y un valor inicial. 
+     \begin{enumerate}[i)]
+         \item      Verifica que las dos funciones son soluciones del sistema.
+         \item		Si el inciso anterior se cumple, comprueba que las dos soluciones son linealmente independientes.
+          \item		Si el inciso anterior se cumple, encuentra la solución del sistema lineal con el valor inicial dado.
+    \end{enumerate}
+\vskip 20pt
+    \begin{enumerate}[a)]
+        \item $\mathbf{A}=\left(\begin{matrix}-2&-1\\2&-5\end{matrix}\right)$
+        
+        Funciones: $\begin{matrix}\mathbf{Y}_1(t)=(e^{-3t}-2e^{-4t},e^{-3t}-4e^{-4t})\phantom{1}\\\mathbf{Y}_2(t)=(2e^{-3t}+e^{-4t},2e^{-3t}+2e^{-4t})\end{matrix}$
+        
+        Valor inicial: $\mathbf{Y}(0)=(2,3)$
+        \item $\mathbf{A}=\left(\begin{matrix}2&3\\1&0\end{matrix}\right)$
+        
+        Funciones: $\begin{matrix}\mathbf{Y}_1(t)=(-e^{-t}+12e^{3t},e^{-t}+4e^{3t})\\\mathbf{Y}_2(t)=(-e^{-t},2e^{-t})\phantom{------}\end{matrix}$
+        
+        Valor inicial: $\mathbf{Y}(0)=(2,3)$
+    \end{enumerate}
+
+     % 4 
+     \question% 
+     Para los siguientes sistemas
+     \begin{enumerate}[i)]
+         \item Calcula los eigenvalores
+         \item Para cada eigenvalor, determina los eigenvectores asociados.
+         \item Esboza el campo de direcciones para el sistema, las soluciones de la línea recta y el retrato fase.
+         \item Para cada eigenvalor, especifica la solución de línea recta que corresponde y traza sus gráficas $x(t)$ y $y(t)$.
+         \item Determina la solución general.
+         \item ¿Qué tipo de punto de equilibrio es el origen?
+     \end{enumerate}
+\vskip 20pt
+    
+    \begin{enumerate}[a)]
+        \item $\colvec{\frac{dx}{dt}}{\frac{dy}{dt}}=\colvec{\;3\quad4\;\;}{\;1\quad0\;\;}\colvec{x}{y}$
+        \item $\colvec{\frac{dx}{dt}}{\frac{dy}{dt}}=\colvec{\;4\quad2\;\;}{\;1\quad3\;\;}\colvec{x}{y}$
+        \item $\dfrac{d\mathbf{Y}}{dt}=\colvec{\;3\quad\phantom{-}2\;\;}{\;0\quad-2\;\;}\mathbf{Y}$
+        
+    \end{enumerate}
+
+     % 5 
+     \question%
+     Los siguientes sistemas lineales tienen eigenvalores complejos. Para cada sistema:
+     \begin{enumerate}[i)]
+         \item Encuentra los eigenvalores.
+         \item Determina si el origen es un sumidero espiral, una fuente espiral o un centro.
+         \item Encuentra la solución general y particular con el valor incial dado.
+         \item Determina la dirección de las oscilaciones en el plano fase. ¿Van las soluciones en el sentido de las manecillas del reloj o al contrario alrededor del origen?
+         \item Esboza el plano fase $xy$ y las gráficas $x(t)$ y $y(t)$ para las soluciones con las condiciones iniciales indicadas.
+     \end{enumerate}
+     \vskip20pt
+     \begin{enumerate}[a)]
+         \item $\dfrac{d\mathbf{Y}}{dt}=\colvec{2\quad-6}{2\quad\phantom{-}1}\mathbf{Y}$, con condición inicial $\mathbf{Y}_0=(2,1)$
+         \item $\dfrac{d\mathbf{Y}}{dt}=\colvec{-1\quad\phantom{-}2}{-1\quad-1}\mathbf{Y}$, con condición inicial $\mathbf{Y}_0=(0,1)$
+         \item $\dfrac{d\mathbf{Y}}{dt}=\colvec{\phantom{-}0\quad2}{-2\quad0}\mathbf{Y}$, con condición inicial $\mathbf{Y}_0=(1,0)$
+     \end{enumerate}
+
+
+
+     % 6 
+     \question% 
+     Para la ecuación de segundo orden $$\frac{d^2y}{dt^2}+p\frac{dy}{dt}+qy=0$$
+     \begin{enumerate}[a)]
+         \item Escribe esta ecuación como un sistema lineal de primer orden.
+         \item ¿Qué condiciones en $p$ y $q$ garantizan que los eigenvalores del correspondiente sistema lineal son complejos?
+         \item ¿Qué relación entre $p$ y $q$ garantiza que el origen es un sumidero espiral? ¿Qué relación asegura que es una fuente espiral? ¿Y cuál otra nos dice que el origen es un centro?
+         \item Si los eigenvalores son complejos, ¿qué condiciones en $p$ y $q$ nos indican que las soluciones se mueven en espiral alrededor del origen en el sentido de las manecillas del reloj?
+     \end{enumerate}
+
+
+     % 7 
+     \question%
+     Considera el sistema lineal $\dfrac{d\mathbf{Y}}{dt}=\colvec{-2\quad-1}{\phantom{-}1\quad-4}\mathbf{Y}$ con la condición inicial $\mathbf{Y}_0=(1,0)$.
+     \begin{enumerate}[a)]
+         \item Encuentra el eigenvalor.
+         \item Encuentra un eigenvector.
+         \item Esboza el campo de direcciones.
+         \item Bosqueja el plano fase, incluyendo la solución con la condición inicial dada.
+         \item Encuentra la solución general.
+         \item Calcula la solución particular para la condición inicial dada.
+         \item Dibuja las gráficas $x(t)$ y $y(t)$ de la solución con la condición inicial dada.
+     \end{enumerate}
+
+
+     
+     
+     % 8 
+     \question%
+     El sistema lineal $\dfrac{d\mathbf{Y}}{dt}=\colvec{4\quad2}{2\quad1}\mathbf{Y}$ tiene cero como un eigenvalor.
+     \begin{enumerate}[a)]
+         \item Encuentra los eigenvalores.
+         \item Encuentra los eigenvectores.
+         \item Esboza el plano fase.
+         \item Determina la solución general.
+         \item Encuentra la solución particular para la condición incial $\mathbf{Y}_0=(1,0)$.
+     \end{enumerate}
+
+
+   
+     
+        \end{questions}
+
+    
+    
+
+
+ 
+ 
+
+ 
+
+\end{document}
