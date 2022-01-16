@@ -1,0 +1,178 @@
+\documentclass[12pt]{exam}
+\usepackage[utf8]{inputenc}		% Caracteres latinos
+\usepackage[spanish]{babel}		% Idioma español
+\usepackage{geometry}			% Organizar el documento
+\usepackage{graphicx}			% Incluir gráficos
+\usepackage{makecell}			% Para personalizar las celdas de una tabla
+\usepackage[nohdr]{mathexam}	% Añadimos el paquete mathexam (sin header)
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{tikz,pgfplots}
+\usepgfplotslibrary{polar}
+\usepackage[shortlabels]{enumitem}
+ \renewcommand{\baselinestretch}{1.5}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{esvect}
+\usepackage[fleqn]{mathtools}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[document]{ragged2e}
+ \usepackage{textpos}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{mathdesign}
+
+%\usepackage[]{mathptmx}        % A free version o Times Roman with mathematical symbols
+%\usepackage{pzc}               % fuente cursiva (conjuntos) Zapf Chancery
+%\usepackage{showframe}
+%\usepackage{lipsum}
+
+% DOCUMENTACIÓN DE LA CLASE EXAM
+% http://ftp.inf.utfsm.cl/pub/tex-archive/macros/latex/contrib/exam/examdoc.pdf
+% DOCUMENTACIÓN DE LA CLASE MATHEXAM
+% http://ctan.dcc.uchile.cl/macros/latex/contrib/mathexam/doc/mathexam.pdf
+
+% Definimos la geometría de la primera página
+\geometry{
+	a4paper,                    % Tamaño del documento
+	hmargin = {1.7cm, 1.6cm}, 	% Margen horizontal izquierdo, derecho
+	vmargin = {1cm, 1cm},	    % Margen vertical superior, inferior
+	headsep = 4mm,				% Separación entre el encabezado y el texto
+	head = .2cm,				% Tamaño del encabezado
+	% marginparsep = 5mm, 		% Seperación entre las notas y el texto
+	% marginpar = 1.5cm,		% Tamaño de las notas
+	includeall,                 % incluye el encabezado, footer y notas dentro del tamaño del documento
+	nomarginpar,	            % Elimina las notas
+	foot = 1cm,                 % Tamaño del footer
+	twoside,                	% Habilita el modo de impresión a doble cara
+}
+
+\selectlanguage{spanish}        % Selecciona el idioma
+\spanishdecimal{.}
+
+%\pagestyle{headandfoot}         % Nuestro examen tendrá encabezado y pié
+
+% DEFINIMOS EL ENCABEZADO
+%\header{
+%\begin{tabular}{l c c c l}
+%            \makecell{\includegraphics[height=2.5cm]{logo.png}} &
+%            \makecell{\textbf{IPEA 215} \\Raúl Scalabrini Ortiz} &
+%            \makecell{Examen} &
+%            \makecell{Curso\\1er Año} &
+%             \makecell[l]{Apellido y %Nombre:\enspace\makebox[2in]{\hrulefill}\\Fecha: \today}
+%        \end{tabular}}{}{}
+
+% DEFINIMOS EL PIE
+%\rfoot{Página \thepage\ de \numpages}
+\newcommand{\iuni}{\pmb{\hat{\imath}}}
+\newcommand{\juni}{\pmb{\hat{\jmath}}}
+\newcommand{\kuni}{\pmb{\hat{k}}}
+\renewcommand{\sin}{\,\text{sen}\,}
+\newcommand*\colvec[3][]{
+    \begin{pmatrix}\ifx\relax#1\relax\else#1\\\fi#2\\#3\end{pmatrix}
+}
+%\colvec{a}{b} para dos 
+% \colvec[a]{b}{c} para tres
+% DOCUMENTO
+\begin{document}
+
+\centering
+
+
+\Large 
+\textbf{\huge Tarea 8 \\ \large Transformada de Laplace. Ecuaciones Diferenciales Parciales}
+
+\small
+Fecha de entrega Domingo 23 de Enero
+\vskip10pt
+% \flushleft
+% \begin{tcolorbox}
+% LEE ANTES DE COMENZAR LA TAREA
+% \begin{enumerate}
+%     \item Se califica sobre 10 por lo que es posible obtener 13 si se realizan también los ejercicios opcionales.
+%     \item El ejercicio opcional puede sustituir a uno y solo uno de los ejercicio del bloque previo.
+%     \item Subir el archivo en \textbf{PDF} a la plataforma con las páginas numeradas.
+
+% \end{enumerate}
+% \end{tcolorbox}
+\normalsize
+
+\pointpoints{punto}{puntos}
+\pointformat{\bfseries\boldmath(\thepoints)}
+\vskip10pt
+
+    
+    \begin{questions}
+     % 1 % 
+     \question
+     Resuelve el problema de valores iniciales mediante el método de transformada de Laplace.
+     \begin{enumerate}[a)]
+         \item $y''-y'-2y=0$; $y(0)=-2$, $y'(0)=5$
+         \item $y''-4y'+5y=4e^{3t}$; $y(0)=2$, $y'(0)=7$
+         \item $y''+4y=4t^2-4t+10$; $y(0)=0$, $y'(0)=3$
+         \item $w''-2w'+w=6t-2$; $w(-1)=3$, $w'(-1)=7$
+     \end{enumerate}
+
+
+     % 2 
+     \question% 
+     Resuelve el problema de tercer orden $y'''+3y''+3y'+y=0$ dados los valores iniciales $y(0)=-4$, $y'(0)=4$ y $y''(0)=-2$ usando el método de la transformada de Laplace.
+
+     
+     % 3 
+     \question% 
+     Usa el teorema de convolución para obtener una fórmula para la solución del problema de valores iniciales dado, donde $g(t)$ es continua por partes en $[0,\infty)$ y de orden exponencial.
+     \begin{enumerate}[a)]
+         \item $y''+9y=g(t)$; $y(0)=1$, $y'(0)=0$
+         \item $y''+4y'+5y=g(t)$; $y(0)=1$, $y'(0)=1$
+     \end{enumerate}
+
+
+     % 4 
+     \question% 
+     Usa el método de la transformada de Laplace para resolver el problema con valores iniciales.
+     \begin{enumerate}[a)]
+         \item $\left\lbrace\begin{array}{ll}
+              x'=3x-2y;&x(0)=1  \\
+              y'=3y-2x;&y(0)=1 
+         \end{array}\right.$
+         \item $\left\lbrace\begin{array}{ll}
+              x'=y+\sen t;&x(0)=2  \\
+              y'=x+2\cos t;&y(0)=0 
+         \end{array}\right.$
+     \end{enumerate}
+  \vskip20pt
+  
+     % 5 
+     \question%
+     \begin{enumerate}[a)]
+         \item Resuelve el problema de flujo de calor:
+         
+         $\begin{array}{ll}
+              \frac{\partial u}{\partial t}(x,t)=\beta\frac{\partial^2u}{\partial x^2}(x,t),&0<x<L,\;t>0  \\
+              u(0,t)=u(L,t)=0,&t>0\\
+              u(x,0)=f(x),&0<x<L
+         \end{array}$
+         \vskip10pt
+         Donde $\beta=3$, $L=\pi$ y $f(x)=\sen x-7\sen3x+\sen5x$
+         \newpage
+         \item Resuelve el problema de la cuerda vibrante:
+         
+         $\begin{array}{ll}
+              \frac{\partial^2u}{\partial t^2}=\alpha^2\frac{\partial^2u}{\partial x^2},&0<x<L,\;t>0  \\
+              u(0,t)=u(L,t)=0,&t\geq0\\
+              u(x,0)=f(x),&0\leq x\leq L\\
+              \frac{\partial u}{\partial t}(x,0)=g(x),&0\leq x\leq L\
+         \end{array}$
+         \vskip10pt
+         Donde $\alpha=3$,$L=\pi$, $f(x)=6\sen2x+2\sen6x$ y $g(x)=11\sen9x-14\sen15x$
+     \end{enumerate}
+     
+
+        \end{questions}
+
+\end{document}
