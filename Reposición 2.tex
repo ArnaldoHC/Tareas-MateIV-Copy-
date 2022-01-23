@@ -1,0 +1,123 @@
+\documentclass[12pt]{exam}
+\usepackage[utf8]{inputenc}		% Caracteres latinos
+\usepackage[spanish]{babel}		% Idioma español
+\usepackage{geometry}			% Organizar el documento
+\usepackage{graphicx}			% Incluir gráficos
+\usepackage{makecell}			% Para personalizar las celdas de una tabla
+\usepackage[nohdr]{mathexam}	% Añadimos el paquete mathexam (sin header)
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{tikz,pgfplots}
+\usepgfplotslibrary{polar}
+\usepackage[shortlabels]{enumitem}
+ \renewcommand{\baselinestretch}{1.5}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{esvect}
+\usepackage[fleqn]{mathtools}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[document]{ragged2e}
+ \usepackage{textpos}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{mathdesign}
+
+% Definimos la geometría de la primera página
+\geometry{
+	a4paper,                    % Tamaño del documento
+	hmargin = {1.7cm, 1.6cm}, 	% Margen horizontal izquierdo, derecho
+	vmargin = {1cm, 1cm},	    % Margen vertical superior, inferior
+	headsep = 4mm,				% Separación entre el encabezado y el texto
+	head = .2cm,				% Tamaño del encabezado
+	% marginparsep = 5mm, 		% Seperación entre las notas y el texto
+	% marginpar = 1.5cm,		% Tamaño de las notas
+	includeall,                 % incluye el encabezado, footer y notas dentro del tamaño del documento
+	nomarginpar,	            % Elimina las notas
+	foot = 1cm,                 % Tamaño del footer
+	twoside,                	% Habilita el modo de impresión a doble cara
+}
+
+\selectlanguage{spanish}        % Selecciona el idioma
+\spanishdecimal{.}
+
+% DEFINIMOS EL PIE
+%\rfoot{Página \thepage\ de \numpages}
+\newcommand{\iuni}{\pmb{\hat{\imath}}}
+\newcommand{\juni}{\pmb{\hat{\jmath}}}
+\newcommand{\kuni}{\pmb{\hat{k}}}
+\renewcommand{\sin}{\,\text{sen}\,}
+\newcommand*\colvec[3][]{
+    \begin{pmatrix}\ifx\relax#1\relax\else#1\\\fi#2\\#3\end{pmatrix}
+}
+%\colvec{a}{b} para dos 
+% \colvec[a]{b}{c} para tres
+% DOCUMENTO
+\begin{document}
+
+\centering
+
+
+\Large 
+\textbf{\huge Reposición 2 \\ \large }
+
+\small
+\vskip10pt
+\normalsize
+
+\pointpoints{punto}{puntos}
+\pointformat{\bfseries\boldmath(\thepoints)}
+\vskip10pt
+
+    
+    \begin{questions}
+     \question% 
+     Se aplica una fuerza externa $F(t)=2\cos2t$ a un sistema masa-resorte con $m=1$, $b=0$ y $k=4$, que está inicialmente en reposo; es decir, $y(0)=0$, $y'(0)=0$. Verifica que $y(t)=\frac{1}{2}t\sen2t$ da el movimiento de este resorte. ¿Qué ocurrirá a largo plazo (al aumentar $t$) con el resorte?
+
+     \question%
+     Un resorte en vibración sin amortiguamiento puede modelarse mediante el problema con valores iniciales $my''(t)+by'(t)+ky=0$ haciendo $b=0$.
+     \begin{enumerate}[a)]
+         \item Si $m=10\, kg$, $k=250\,kg/s^2$, $y(0)=0.3\,m$ y $y'(0)=-0.1\,m/s$, determina la función de movimiento para este resorte en vibración sin amortiguamiento.
+         \item Cuando la ecuación de movimiento tiene la forma $y(t)=c_1e^{\alpha t}\cos\beta t+c_2e^{\alpha t}\beta t$, se dice que el movimiento es oscilatorio con frecuencia $\beta/2\pi$. Determina la frecuencia de oscilación para el sistema de resorte del inciso anterior.
+         \item Agrega un término de amortiguamiento al mismo sistema haciendo $b=60\,kg/s$ y determina la función de movimiento y su frecuencia de oscilación.
+         \item ¿Qué efecto tuvo el amortiguamiento sobre la frecuencia de oscilación y qué otros efectos tuvo sobre la solución?
+     \end{enumerate}
+
+     \question%
+    Mediante el método de reducción de orden, determina una segunda solución linealmente independiente a la solución dada $f(t)=e^t$ de $tx''-(t+1)x'+x=0$,  $t>0$.  
+     \question% 
+     Determina la solución general de:
+     \begin{enumerate}[a)]
+        \item	$y''(\theta)+4y(\theta)=\sen\theta-\cos\theta$
+        \item	$y''(x)+6y'(x)+10y(x)=10x^4+24x^3+2x^2-12x+18$
+        \item $y''+y=3\sec t-t^2+1$
+     \end{enumerate}
+
+     \question%
+     Resuelve las siguientes ecuaciones diferenciales.
+     \begin{enumerate}[a)]
+         \item $2u''+7u'-4u=0$
+         \item $y'''-2y''-y'+2y=0$ con $y(0)=2$, $y'(0)=3$ y $y''(0)=5$
+         \item $y''+9y=0$
+     \end{enumerate}
+
+     \question%
+     Determina la solución del problema con valores iniciales $y''+2y'+y=t^2+1-e^t$;  $y(0)=0$,  $y'(0)=2$.
+     \question%
+     Determina una solución general usando el método de variación de parámetros de $y''+4y'+4y=e^{-2t}\ln t$.
+     \question% 
+     Determina si las soluciones dadas son linealmente independientes o dependientes en el intervalo.
+     \begin{enumerate}[a)]
+         \item $y_1(x)=xe^{2x}$, $y_2(x)=e^{2x}$; en el intervalo $(0,1)$
+         \item $y_1(x)=x^2\cos(\ln|x|)$, $y_2(x)=x^2\sen(\ln|x|)$; en el intervalo $(0,1)$
+         \item $y_1(x)=-3$, $y_2(x)=5\sen^2x$, $y_3(x)=\cos^2x$; en el intervalo $(-\infty,\infty)$
+     \end{enumerate}
+
+
+
+    \end{questions}
+
+\end{document}
